@@ -8,8 +8,7 @@ var score = 75;
 var highScore = 0;
 var quizTime;
 
-document.getElementById("start-button").addEventListener("click", event=> {
-    console.log("hello");
+document.getElementById("start-button").addEventListener("click",_event=> {
     document.getElementById("start-quiz").classList.add("d-none");
     document.getElementById("quiz-questions").classList.remove("d-none");
     setTime();
@@ -97,7 +96,7 @@ function quizOver() {
 //Event listener to trigger the function that allows the user to save their initials and high score
 
 var initialsInput = document.querySelector("#initials-input");
-var highscoreInput = document.querySelector("final-score");
+var finalScoreInput = document.querySelector("score");
 var initialsButton = document.querySelector("#initials-btn");
 
 function displayMessage(type, message) {
@@ -106,22 +105,18 @@ function displayMessage(type, message) {
   }
   
   function renderLastRegistered() {
-    var initials = localStorage.getItem("#initials");
-    var finalscore = localStorage.getItem("final-score");
-  
-    if (initials && final-score === null) {
-      return;
-    }
+    var initials = localStorage.getItem("#initials-input");
+    var score = localStorage.getItem("score");
   
   }
 
 var initialsButton = document.querySelector("#initials-btn");
 
-submitButton.addEventListener('click', function(event) {
+submitButton.addEventListener('click', function() {
     event.preventDefault();
 
     var initialsInput = document.querySelector('#initials-input').value;
-    var highscoreInput = document.querySelector('final-score').value;
+    var scoreInput = document.querySelector('score').value;
 
     if (initialsInput === '') {
         displayMessage('Initials cannot be blank');
@@ -129,10 +124,10 @@ submitButton.addEventListener('click', function(event) {
         displayMessage('Registered Successfully');
 
         localStorage.setItem('#initials-input', initialsInput);
-        localStorage.setItem('final-score', highscoreInput);
+        localStorage.setItem('score', score);
         renderLastRegistered();
         return;
-    }
+    }   
 })
 
 
